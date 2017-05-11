@@ -1,0 +1,83 @@
+/*Seta imagem bg e seta 100% da tela*/
+body{
+   background-image: url('black-green.jpg');
+   background-size: 100% auto;
+}
+/*Centraliza o painel no meio da tela*/
+#painel-meio{
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+    bottom: 0;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+
+}
+/* Alinha o texto ao lado do input*/
+h3{
+    margin-top: 9px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+/*Remove borda e escolhe cor do painel e dos inputs*/
+.form-control, .panel{
+    background: rgba(40,43,48,.75);
+    border: none;
+}
+/*Coloca margin de 10 px para imagem de baixo*/
+.form-control{
+    margin-bottom: 10px;
+}
+/*Muda a cor do texto*/
+input:focus {
+    color: #558B57;
+}
+/*Cabecalho  da div do login*/
+.panel-default>.panel-heading {
+    color: white;
+    background-color: rgba(30,33,36, .75);
+    border-color: transparent;
+}   
+/*Foco verde*/
+.form-control:focus {
+    border-color: green;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,255,.075), 0 0 8px rgba(0,255,0,.6);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(38,128,0,.6); 
+}
+/*Btn 100% div e height*/
+.btn{
+    width: 100%;
+    margin-top: 10px;
+    line-height: 50px;
+    font-size: 12pt;
+}
+/*Btn verde*/
+.btn-primaryGreen {
+    color: #fff;
+    background-color: #558B57;  
+    border-color: rgb(85,150,87);
+}
+.btn-primaryGreen:hover{
+    color: white;
+    background-color: #276733;
+    border-color:  #276733;
+}
+.btn-primaryGreen:focus{
+    color: white;
+    background-color: #276733;
+    border-color:  #276733;
+    outline: 0;
+}
+
+.btn-primaryGreen:active:focus {
+    color: white;
+    background-color: #276733;
+    border-color: #276733;
+    outline: 0;
+}
