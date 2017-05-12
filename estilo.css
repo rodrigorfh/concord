@@ -5,10 +5,10 @@ body{
 }
 /*Centraliza o painel no meio da tela*/
 #painel-meio{
-	position: absolute;
-	top:0;
-	left: 0;
-	right: 0;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
     bottom: 0;
     display: flex;
     -webkit-box-pack: center;
@@ -62,6 +62,7 @@ input:focus {
     color: #fff;
     background-color: #558B57;  
     border-color: rgb(85,150,87);
+    margin-bottom: 10px;
 }
 .btn-primaryGreen:hover{
     color: white;
