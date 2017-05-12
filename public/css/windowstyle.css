@@ -1,0 +1,50 @@
+/*Alinha o controller da janela na parte superior direita*/
+#controller-supdireita{  
+    float: right;
+}
+/*Layout dos botões do controller*/
+
+#btnminimize{
+    margin-top: -5px;
+    color: #558B57;
+    position: relative;
+    padding: 0;
+    border-radius: 4px;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    border: none;
+}
+#btnminimize:hover{
+    color: white;
+    border: none;
+}
+#btnmaximize{
+    margin-top: -5px;
+    color: #558B57;
+    position: relative;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    border: none;
+}
+#btnmaximize:hover{
+    color: white;
+    border: none;
+}
+#btnclose{
+    margin-top: -5px;
+    color: #558B57;
+    position: relative;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    border: none;
+}
+#btnclose:hover{
+    color: white;
+    border: none;
+}
