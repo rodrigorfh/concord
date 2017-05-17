@@ -1,0 +1,81 @@
+.btn{
+    outline: 0;
+  /*  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,255,.075), 0 0 8px rgba(0,255,0,.6);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(38,128,0,.6);*/
+}
+
+/*Btn verde*/
+.btn-primaryGreen {
+    color: #fff;
+    background-color: #558B57;  
+    border-color: rgb(85,150,87);
+}
+.btn:hover{
+    color: white;
+    background-color: #276733;
+    border-color:  #276733;
+}
+.btn:focus{
+    color: white;
+    background-color: #276733;
+    border-color:  #276733;
+    outline: 0;
+}
+
+.btn:active:focus {
+    color: white;
+    background-color: #276733;
+    border-color: #276733;
+    outline: 0;
+}
+
+/*Alinha o controller da janela na parte superior direita*/
+#controller-supdireita{  
+    float: right;
+}
+/*Layout dos botões do controller*/
+
+#btnminimize{
+    margin-top: -5px;
+    color: #558B57;
+    position: relative;
+    padding: 0;
+    border-radius: 4px;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    border: none;
+}
+#btnminimize:hover{
+    color: white;
+    border: none;
+}
+#btnmaximize{
+    margin-top: -5px;
+    color: #558B57;
+    position: relative;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    border: none;
+}
+#btnmaximize:hover{
+    color: white;
+    border: none;
+}
+#btnclose{
+    margin-top: -5px;
+    color: #558B57;
+    position: relative;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    -webkit-app-region: no-drag;
+    border: none;
+}
+#btnclose:hover{
+    color: white;
+    border: none;
+}

@@ -21,10 +21,11 @@ body{
 
 /*Define tamanho da logo na navbar*/
 .img-size{
-    width: 115px;
+    width: 105px;
     margin: 5px;
-    margin-top: -12px;
+    margin-top: -13px;
 }
+
 
 /* Alinha o texto ao lado do input*/
 h3{
