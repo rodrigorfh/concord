@@ -1,0 +1,286 @@
+body{
+	/*background-color: green;*/
+	/*background-image: url('black-green.jpg');*/
+	background-image: url('../img/dudley.jpg');
+	background-size: 100% auto;
+
+	z-index: 0;
+}
+#bodyBody{
+	position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+.img-size{
+    width: 115px;
+    margin: 5px;
+    margin-top: -12px;
+}
+#menu, #texto, #amigos{
+	height: 92vmin;
+}
+/**
+*
+*
+DIV DO Menu firulinha*
+*
+*
+*/
+#menu{
+	/*background-color:blue;*/
+	padding-right: 1px;
+	padding-left: 0px;
+	/*background-color: rgba(46,49,54,.75);*/
+	background-color: rgba(40,40,40,.8);
+}
+
+/*Borda curva
+#menuOpcoes {
+   
+    border-radius: 0px 30px 30px 0px;
+    margin-top: 39px;
+   
+    margin-top: 78px;
+    background-color: rgba(46,49,54,.75);
+    height: 52vmin;
+    transition-duration: 1s;
+}*/
+#menuOpcoes{
+	/*background-color: black;*/
+	 border-radius: 0px 30px 30px 0px;
+	    margin-top: 85px;
+	background-color: rgba(46,49,54,.75);
+	height: 55vmin;
+	transition-duration: 1s;
+	z-index: 2;	
+
+}#menuOpcoes:hover{
+	/*background-color: brown;*/
+	background-color: rgba(46,49,54,.75);
+	transition-duration: 1s;
+	
+	width: 20vmax;
+
+}
+#escolhaMenu{
+	/*background-color: orange;*/
+	height: 10vmin;
+	border-bottom: 2px ridge #558B57;
+	padding-right: 1px;
+    padding-left: 1px;
+    text-align: right;
+    margin-top:20px;
+	
+}
+.logosMenu, .logosMenuExtend{
+	/*position: relative;*/
+	flex:1;
+	color: #558B57;
+	transition-duration: 1s;
+	text-align: right;
+}
+.logosMenu{
+	z-index: -1;
+    /*margin-left: 10px;*/
+    /*margin-top: -15px;*/
+
+}
+.logosMenuExtend{
+	margin-top: 0px;
+}
+.textoMenu{
+	font-size: 4em;
+	color:rgb(85,85,85);
+	visibility: hidden;
+}
+.textoMenu{
+	visibility: visible;
+}
+/*.textoBtn{
+	color: #558B57;
+	font-size:	2em;
+	margin-right: 10px;
+}
+span{
+	display: inline-block;
+	z-index: -1;
+}*/
+
+
+/**
+*
+*
+*
+DIV DA FOFOCA
+*
+*
+*/
+#texto{
+	/*background-color: red;*/
+	/*background-color: rgba(39,40,34,.75);*/
+	background-color: rgba(40,40,40,.8);
+	padding-left: 0px;
+	padding-right: 0px;
+	/*	border-left: 1px ridge #558B57;
+		border-right: 1px ridge #558B57;*/
+}
+#showMsg{
+	/*background-color: purple;*/
+	height: 81.5vmin;
+	overflow-y:auto;
+
+}
+#boxInput{
+	border-top: 1px ridge #558B57;
+	/*background-color: orange;*/
+	height: 10.4vmin;
+}
+#formInput, .btn{
+	border: 2px groove;
+    border-color: #558B57;
+
+}
+#formInput{
+	border-right: none;
+	display:inline;
+	margin-top: 20px;
+    width: 50%;
+    margin-left: 250px;
+}
+
+
+
+/***
+*
+*
+*CSS - DIV Da amizade*
+*
+*
+*/
+#amigos{
+	background-color: rgba(46,49,54,.75);
+	/*background-color: yellow;*/
+
+}
+#searchDeAmigo{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#listaAmigos{
+	/*background-color: pink;*/
+	height: 81vmin;
+	padding-left: 0px;
+	padding-right: 0px;
+	overflow: hidden;
+}#listaAmigos:hover{
+	overflow: auto;
+}
+
+.contato{
+	/*background-color: black;*/
+	height: 10vmin;
+	border-bottom: 1px ridge #558B57;
+	padding-top: 2px;
+	padding-left: 10px;
+}
+.foto{
+	border-radius: 50%;
+	border: 2px solid grey;
+	background-image: url('../img/dolinho.jpg');
+	background-size: 100% auto;
+	height: 9vmin;
+}
+.dadosContato{
+	color:  #558B57;
+	/*background-color: yellow;*/
+	height: 9vmin;
+}
+
+.nomeContato{
+	font-size: 2em;
+}
+
+
+/*
+*
+*
+*
+Estilos dos inputs
+*
+*
+*
+*/
+
+.form-control{
+	 background: rgba(40,43,48,.75);
+    border: none;	
+}
+input:focus {
+    color: white;
+}
+.form-control:focus {
+    border-color: green;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,255,.075), 0 0 8px rgba(0,255,0,.6);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(38,128,0,.6); 
+}
+
+
+/*
+.btn-{background: rgba(40,43,48,.75)
+    color: #fff;
+    background-color: #558B57;  
+    border-color: rgb(85,150,87);
+    margin-bottom: 10px;
+}*/
+.btn{
+	/*border-left: none;*/
+	padding: 5px 12px;
+    /*margin-left: -7px;*/
+    margin-left: -7px;
+    margin-bottom: 2.78124px;
+    color: #558B57;
+    background: rgba(40,43,48,.75);
+}
+.btn:hover{
+    color: #558B57;
+    background-color: rgba(40,43,48,.75);
+    border-color:  none;
+}
+.btn:focus{
+    color: #558B57;
+    background-color:rgba(40,43,48,.75);
+    border-color:  green;
+    outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,255,.075), 0 0 8px rgba(0,255,0,.6);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(38,128,0,.6); 
+}
+
+.btn:active:focus {
+    color: #558B57;
+    background-color: rgba(40,43,48,.75);
+    /*border-color: none;*/
+    /*outline: 0;*/
+}
+
+/**scroll bar **/
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-color: 	grey;
+}  
+::-webkit-scrollbar-thumb {
+    background-color:#558B57;
+} 
