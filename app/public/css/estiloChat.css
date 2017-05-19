@@ -81,12 +81,15 @@ DIV DO Menu firulinha*
     padding-left: 1px;
     text-align: right;
     margin-top:20px;
+    color: #558B57;
 	
+}#escolhaMenu:hover{
+	color: grey;
 }
 .logosMenu, .logosMenuExtend{
 	/*position: relative;*/
 	flex:1;
-	color: #558B57;
+	
 	transition-duration: 1s;
 	text-align: right;
 }
@@ -117,7 +120,7 @@ DIV DO Menu firulinha*
 	transition-duration: 1s;
 }
 .textspnShow{
-	color: #558B57;
+	
 	position: absolute;
 	visibility: visible;
 	margin-left: -190px;
@@ -246,6 +249,9 @@ Estilos dos inputs
 }
 input:focus {
     color: white;
+}
+a:hover{
+	color:black;
 }
 .form-control:focus {
     border-color: green;
