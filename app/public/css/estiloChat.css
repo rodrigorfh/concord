@@ -107,6 +107,23 @@ DIV DO Menu firulinha*
 .textoMenu{
 	visibility: visible;
 }
+
+.textspn{
+	color:black;
+	visibility: hidden;
+	position: absolute;
+	margin-left: -215px;
+	/*animation-duration: 4s;*/
+	transition-duration: 1s;
+}
+.textspnShow{
+	color: #558B57;
+	position: absolute;
+	visibility: visible;
+	margin-left: -190px;
+	font-size: 20pt;
+	transition-duration: 1s;
+}
 /*.textoBtn{
 	color: #558B57;
 	font-size:	2em;

@@ -49,19 +49,23 @@
 		<div class="col-xs-12" id="menuOpcoes">
 			<div id="escolhaMenu" class="col-xs-12">
 				<!-- <div class="col-xs-7 textoMenu">oiiii</div> -->.
+				<span class="textspn ctrltext">Usuario</span>
 				<i class="fa fa-user-circle fa-4x logosMenu" aria-hidden="true" ></i>
 				<!-- <span class="textoBtn" style="visibility: hidden">Jogos</span>
 				<i class="fa fa-steam fa-4x" aria-hidden="true"></i>		 -->			
 			</div>
 
 			<div id="escolhaMenu" class="col-xs-12">
+				<span class="textspn ctrltext">Jogos</span>
 				<i class="fa fa-gamepad fa-4x logosMenu" aria-hidden="true" ></i>	
 			</div> 
 
 			<div id="escolhaMenu" class="col-xs-12">
+				<span class="textspn ctrltext">Loja</span>
 				<i class="fa fa-shopping-cart fa-4x logosMenu" aria-hidden="true" ></i>					
 			</div> 
 			<div id="escolhaMenu" class="col-xs-12" style="border: none">
+				<span class="textspn ctrltext">Configuracoes</span>
 				<i class="fa fa-cogs fa-4x logosMenu" aria-hidden="true" ></i>	
 			</div> 
 
@@ -172,10 +176,11 @@
 
 		$("i").removeClass('.logosMenu').addClass('logosMenuExtend');
 		$(".textoBtn").css("visibility", "visible");
-		// $('body').css("background-image", "url('blanka.jpg')");
+		$(".ctrltext").removeClass("textspn").addClass("textspnShow");
 	}).mouseout(function(){
 		$("i").removeClass('logosMenuExtend').addClass('.logosMenu');
 		$(".textoBtn").css("visibility", "hidden");
+		$(".ctrltext").removeClass("textspnShow").addClass("textspn");
 		// $('body').css("background-image", "url('dudley.jpg')");
 	});
 
