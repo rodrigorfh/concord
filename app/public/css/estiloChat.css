@@ -12,6 +12,10 @@ body{
     padding-right: 0px;
     padding-left: 0px;
 }
+.navbar-inverse {
+	background-color: rgba(46,49,54,.75);
+    border-color: #080808;
+}
 .navbar {
     position: relative;
     min-height: 50px;
@@ -19,9 +23,9 @@ body{
     border: 1px solid transparent;
 }
 .img-size{
-    width: 115px;
+    width: 105px;
     margin: 5px;
-    margin-top: -12px;
+    margin-top: -13px;
 }
 #menu, #texto, #amigos{
 	height: 92vmin;
