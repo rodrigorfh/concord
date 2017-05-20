@@ -1,6 +1,6 @@
 /*Seta imagem bg e seta 100% da tela*/
 body{
-   background-image: url('../img/img-bg.jpg');
+   background-image: url('../img/bggreen.jpg');
    background-size: 100% auto;
 }
 /*Centraliza o painel no meio da tela*/
@@ -92,10 +92,37 @@ input:focus {
     outline: 0;
 }
 
-#cadastroNome{
+/*#cadastroNome{
     padding: 0px;
-}
+}*/
 
 #cadastroNome > h3{
         margin-left: 15px;
+}
+
+.teste {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    color: white;
+
+}
+
+.wololo {
+    padding-bottom: 5px;
+}
+
+*:focus{
+    border-bottom: 2px solid white;
+}
+
+input{
+    width: 100%;
+}
+
+.navbar{
+    background: rgba(40,43,48,.75);
+    border:none;
+    border-radius: 0;
 }
