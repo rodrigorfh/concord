@@ -60,7 +60,9 @@ app.post('/chat', function(req, res){
 });
 
 
-
+app.get("/cadastro", function(req, res){
+	res.render("cadastro.ejs");
+});
 function hora(){
 	var d = new Date();
   	var h = d.getHours();
