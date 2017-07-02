@@ -1,8 +1,8 @@
 function configUser(){
 	$.ajax({
 		url: '/config',
-		success: function(){
-			alert('nhee');
+		success: function(page){
+			$("#showMsg").append(page);
 		}
 	});
 }

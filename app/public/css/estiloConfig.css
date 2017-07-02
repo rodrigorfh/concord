@@ -1,18 +1,4 @@
-/*Centraliza o painel no meio da tela*/
-#painel-meio{
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    z-index: 1;
 
-}
 /* Alinha o texto ao lado do input*/
 h3{
     margin-left: 1px;
