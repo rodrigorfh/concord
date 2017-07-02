@@ -1,0 +1,48 @@
+/*Seta imagem bg e seta 100% da tela*/
+body{
+   background-image: url('../img/keyb-bg.jpg');
+   background-size: 100% auto;
+   background-color: rgba(40,43,48,.75);
+}
+
+/*Define tamanho da logo na navbar*/
+.img-size{
+    width: 105px;
+    margin: 5px;
+    margin-top: -13px;
+}
+
+/*Remove borda e escolhe cor do painel e dos inputs*/
+.form-control, .panel{
+    background: rgba(40,43,48,.75);
+    border: none;
+}
+
+/*Coloca margin de 10 px para imagem de baixo*/
+.form-control{
+    margin-bottom: 10px;
+}
+/*Muda a cor do texto*/
+input:focus {
+    color: #558B57;
+}
+/*Cabecalho  da div do login*/
+.panel-default>.panel-heading {
+    color: white;
+    background-color: rgba(30,33,36, .75);
+    border-color: transparent;
+}
+/*Texto do HTML*/
+h1{
+    display: inline;
+}
+h5{
+    color: white;
+    margin-top: 9px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.glyphicon{
+    color: yellow;
+    font-size: 50px;
+}

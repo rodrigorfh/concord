@@ -91,3 +91,31 @@ input:focus {
     border-color: #276733;
     outline: 0;
 }
+/*Inputs*/
+.transp {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    color: white;
+
+}
+.preench {
+    padding-bottom: 5px;
+}
+
+.transp:focus{
+    border-bottom: 3px solid white;
+    margin-top: -1px;
+    margin-bottom: -1px; 
+}
+
+input{
+    width: 100%;
+}
+
+.navbar{
+    background: rgba(40,43,48,.75);
+    border:none;
+    border-radius: 0;
+}

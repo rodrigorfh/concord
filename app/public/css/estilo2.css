@@ -116,6 +116,8 @@ input:focus {
 
 *:focus{
     border-bottom: 3px solid white;
+    margin-top: -1px;
+    margin-bottom: -1px; 
 }
 
 input{

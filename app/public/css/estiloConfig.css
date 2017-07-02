@@ -108,6 +108,8 @@ input:focus {
 
 .transp:focus{
     border-bottom: 3px solid white;
+    margin-top: -3px;
+    margin-bottom: -1px; 
 }
 
 input{
