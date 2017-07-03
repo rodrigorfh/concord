@@ -1,4 +1,8 @@
 var app = require('./config/server');
+var dbConnection = require ('./config/dbConnection');
+
+var connection = dbConnection();
+
 var server = app.listen(80, function(){
 	console.log("Servidor Online");
 });
@@ -37,6 +41,22 @@ io.on('connection', function(socket){
 	socket.on('disconnect', function(){
 		console.log('Usuário desconectou');
 	});	
+	socket.on('chegay',function(data){
+		console.log('Cade vc: '+ data.user);
+
+		connection.query('select * from contatos', function(error, results, fields){
+
+			if(error) throw error;
+
+				//Método de acesso a múltiplos usuários
+				for(var i=0; i<results.length; i++){
+				console.log(results[i].nome_amigo);
+		 		}
+		 		socket.emit('seusAmiguinhos', {
+					contato: results
+				});		
+		});
+	});
 });
 
 app.get('/', function(req , res){
@@ -49,14 +69,35 @@ app.post('/chat', function(req, res){
 	req.assert('user', 'Seu nome tem que ter de 3 a 15 caracteres').len(3, 15);
 
 	var erros = req.validationErrors(); 
-
+	// console.log(erros);
 	if(erros){
 		res.render("index", {validacao : erros});
 		return;
 	}
 
-	io.emit('conexao', {user: login.user, mensagem: 'Entrou no chat', hora: hora()});
-	res.render('chat', {user: login.user});
+		// var post  = {id_user: req.body.user, nome: req.body.nome, senha: req.body.senha};
+		var query = connection.query({
+			sql: 'SELECT * from usuarios WHERE id_user = ? and senha = ?', 
+			values: [req.body.user, req.body.senha]
+
+		}, function (error, results, fields) {
+
+		if(error) throw error;
+		//Método de acesso a múltiplos usuários
+		// for(var i=0; i<results.length; i++){
+		// console.log(results[i].id_user);
+		// }			
+		if(results.length > 0) {
+			  if (results)
+			    console.log("Test:" + results);
+				io.emit('conexao', {user: login.user, mensagem: 'Entrou no chat', hora: hora()});
+				res.render('chat', {user: login.user});
+			}
+
+		});
+		
+		
+	
 });
 
 
@@ -75,3 +116,24 @@ function hora(){
   	var hora = h+":"+m+":"+s;
 	return hora
 }
+
+app.post('/registro', function(req, res){
+
+	console.log(req.body.nome);
+
+		var post  = {id_user: req.body.user, nome: req.body.nome, senha: req.body.senha};
+		var query = connection.query('INSERT INTO usuarios SET ?', post, function (error, results, fields) {
+		  if (error) throw error;
+		  // Neat!
+		});
+		console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
+
+	// connection.query('insert into usuarios set 'id_user' = 1, 'nome'= matheus, 'senha'=1234', function(req, res){
+
+	// 		// res.render('cadastro');
+
+	// });
+
+
+
+});

@@ -19,9 +19,6 @@ socket.on('mensagemParaCliente', function(data){
 });
 
 
-
-
-
 // Envia mensagem para o servidor
 $('#formInput').on('keydown', function (event) { 
     if (event.keyCode === 13) {
@@ -43,5 +40,17 @@ function enviarMsg(){
 
 		// alert('debug');
 }
+socket.on('seusAmiguinhos', function(data){
+	var alerta="";
+	for(var i = 0 ; i< data.contato.length; i++){
+		alerta+= data.contato[i].nome_amigo+ " "+ data.contato[i].status_pessoa +"\n";
+	}
+	alert(alerta);
+});
 
+$(document).ready(function(){
+	socket.emit('chegay',{
+		user: $('#nick').val()
+	});
+});
 // Fim envia mensagem para o servidor
