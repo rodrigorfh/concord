@@ -57,24 +57,22 @@ io.on('connection', function(socket){
 
 	socket.on("excluirConta", function(data){
 		//data.user = conta a ser excluida
-
-		
 		socket.emit("contaExcluida",{
 			msg: "Sua conta foi excluida"
 		});
 	});
 
-	socket.on("confirmaConfig", function(data){
+	socket.on("configPassword", function(data){
+		
 		if(data.senha != data.novaSenha){
 			socket.emit("respostaConfig",{
 				status: false,
 				msg: 'Senhas diferentes'
 			});
+		}
 		//data.user = conta a ser alterada a senha
 		//data.senha = nova senha
 
-
-		}
 	});
 });
 
@@ -113,10 +111,7 @@ app.post('/chat', function(req, res){
 				res.render('chat', {user: login.user});
 			}
 
-		});
-		
-		
-	
+		});	
 });
 
 

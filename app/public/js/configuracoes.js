@@ -13,7 +13,7 @@ var btnAnimacao = false;
 $("#confirmaConfig").click(function(){
 	btnAnimacao = document.getElementById("ativado").checked;
 	if($("#newPassword").val()){
-		socket.emit("config", {
+		socket.emit("configPassword", {
 			user: $('#nick').val(),
 			senha: $("#newPassword").val(),
 			novaSenha: $("#confirmPassword").val()
@@ -32,5 +32,6 @@ socket.on("respostaConfig", function(data){
 });
 
 socket.on("contaExcluida", function(data){
-	
+	alert(data.msg);
+	window.location = "http://localhost";
 });

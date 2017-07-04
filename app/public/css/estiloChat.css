@@ -58,8 +58,8 @@ DIV DO Menu firulinha*
 }*/
 #menuOpcoes{
 	/*background-color: black;*/
-	 border-radius: 0px 30px 30px 0px;
-	    margin-top: 85px;
+	border-radius: 0px 30px 30px 0px;
+	margin-top: 85px;
 	background-color: rgba(46,49,54,.75);
 	height: 55vmin;
 	transition-duration: 1s;
@@ -71,6 +71,17 @@ DIV DO Menu firulinha*
 	transition-duration: 1s;
 	
 	width: 20vmax;
+
+}
+
+#menuOpcoesClone{
+	/*background-color: black;*/
+	border-radius: 0px 30px 30px 0px;
+	margin-top: 85px;
+	background-color: rgba(46,49,54,.75);
+	height: 55vmin;
+	transition-duration: 1s;
+	z-index: 2;	
 
 }
 #escolhaMenu{
