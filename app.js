@@ -57,6 +57,11 @@ io.on('connection', function(socket){
 
 	socket.on("excluirConta", function(data){
 		//data.user = conta a ser excluida
+			connection.query('delete from usuarios where id_user=?',[data.user], function(error, results, fields){
+				if (error) throw error;
+		  			console.log('Conta deletada com sucesso!');
+			});
+
 		socket.emit("contaExcluida",{
 			msg: "Sua conta foi excluida"
 		});
@@ -72,6 +77,10 @@ io.on('connection', function(socket){
 		}
 		//data.user = conta a ser alterada a senha
 		//data.senha = nova senha
+			connection.query('UPDATE usuarios SET senha = ? WHERE id_user = ?', [data.senha, data.user], function (error, results, fields) {
+				if (error) throw error;
+					console.log('Senha alterada com sucesso!');
+			});
 
 	});
 });
