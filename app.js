@@ -43,11 +43,8 @@ io.on('connection', function(socket){
 	});	
 	socket.on('chegay',function(data){
 		console.log('Cade vc: '+ data.user);
-
 		connection.query('select * from contatos', function(error, results, fields){
-
 			if(error) throw error;
-
 				//Método de acesso a múltiplos usuários
 				for(var i=0; i<results.length; i++){
 				console.log(results[i].nome_amigo);
@@ -56,6 +53,28 @@ io.on('connection', function(socket){
 					contato: results
 				});		
 		});
+	});
+
+	socket.on("excluirConta", function(data){
+		//data.user = conta a ser excluida
+
+		
+		socket.emit("contaExcluida",{
+			msg: "Sua conta foi excluida"
+		});
+	});
+
+	socket.on("confirmaConfig", function(data){
+		if(data.senha != data.novaSenha){
+			socket.emit("respostaConfig",{
+				status: false,
+				msg: 'Senhas diferentes'
+			});
+		//data.user = conta a ser alterada a senha
+		//data.senha = nova senha
+
+
+		}
 	});
 });
 
@@ -121,7 +140,7 @@ app.post('/registro', function(req, res){
 
 	console.log(req.body.nome);
 
-		var post  = {id_user: req.body.user, nome: req.body.nome, senha: req.body.senha};
+		var post  = {id_user: req.body.user, senha: req.body.senha};
 		var query = connection.query('INSERT INTO usuarios SET ?', post, function (error, results, fields) {
 		  if (error) throw error;
 		  // Neat!
@@ -133,7 +152,5 @@ app.post('/registro', function(req, res){
 	// 		// res.render('cadastro');
 
 	// });
-
-
-
 });
+

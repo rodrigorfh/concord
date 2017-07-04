@@ -32,7 +32,7 @@ $('#btnformInput').click(function(){
 function enviarMsg(){
 	if(!$("#formInput").val()) return;
 	socket.emit('enviarMsg', {
-		user: 'login.user',
+		user: $('#nick').val(),
 		mensagem: $("#formInput").val()
 	});
 	$('#formInput').val('');
@@ -41,11 +41,18 @@ function enviarMsg(){
 		// alert('debug');
 }
 socket.on('seusAmiguinhos', function(data){
-	var alerta="";
+	var amigosList="";
 	for(var i = 0 ; i< data.contato.length; i++){
-		alerta+= data.contato[i].nome_amigo+ " "+ data.contato[i].status_pessoa +"\n";
+		// alerta+= data.contato[i].nome_amigo+ " "+ data.contato[i].status_pessoa +"\n";
+		amigosList += '<div class="contato">';
+			amigosList += '<div class="col-xs-3 foto"></div>';
+			amigosList += '<div class="col-xs-9 dadosContato">'
+				amigosList += '<div class="nomeContato">'+ data.contato[i].nome_amigo + '</div>';
+				amigosList += '<div class="statusNome">'+data.contato[i].status_pessoa + '</div>';
+			amigosList+= '</div> </div>';
+
 	}
-	alert(alerta);
+	$('#listaAmigos').append(amigosList);
 });
 
 $(document).ready(function(){

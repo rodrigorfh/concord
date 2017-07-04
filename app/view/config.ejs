@@ -1,69 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../public/css/estiloConfig.css">
-	<!-- JQuery -->
-    <script>window.$ = window.jQuery = require('jquery');</script>
-</head>
-<body>
-	<div class="col-md-4 col-md-offset-4" id="painel-meio">
+
+	<div class="" id="painel-meio">
 		<div class="panel panel-default">
 			<div class="panel-heading"> 
 				<h1>Configurações</h1>                               
 			</div>
-			<!-- <form action="/" method="post"> -->
-			<fieldset>
-				<div class="panel-body">
-					<div class="col-xs-12">
+			<div class="panel-body">
+				<div class="col-xs-12">
+					<div class="col-xs-12 preench">
 						<div class="col-xs-12 preench">
-							<div class="col-xs-12 preench">
-								<h3><small>Nome</small></h3>
-								<input class="transp" type="text" name="nome" autofocus="">
-								<h5><small>Alterar nome da conta</h5>
-							
-								<h3><small>Usuário</small></h3>
-								<input class="transp" type="text" name="nome" autofocus="">
-								<h5><small>Alterar nome de Usuário</small></h5>
-							</div>
-						</div>
-
-						<div class="col-xs-12 preench">
-							<div class="col-xs-12 preench">
 							<h3><small>Redefinir senha</small></h3>
-							<input class="transp" type="text" name="nome" autofocus="">
-							
+							<input class="transp" type="password"  autofocus="" id="newPassword">
+
 							<h3><small>Confirmar senha</small></h3>
-							<input class="transp" type="text" name="nome" autofocus="">
-							</div>
+							<input class="transp" type="password" id="confirmPassword">
 						</div>
-					
-						<h3><small>Habilitar Animações </small></h3>
-                        <div class="switch pull-right">
-                            <input id="ativado" name="someSwitchOption001" type="checkbox"/>
-                            <label for="ativado" class="label-success"></label>
-                        </div>
-			        	<br>
-                        <h3><small>Deseja excluir a conta?</small></h3>
-                        <button type="submit-delete" class="btn btn-primaryWarning pull-right">Excluir Conta</button>
 					</div>
 
-					<div class= "col-xs-12">
-						<button type="submit" class="btn btn-primaryGreen">Confirmar Alterações</button>
+					<h3><small>Habilitar Animações </small></h3>
+					<div class="switch pull-right">
+						<input id="ativado" name="someSwitchOption001" type="checkbox">
+						<label for="ativado" class="label-success"></label>
 					</div>
-
-
-
+					<br>
+					<h3><small>Deseja excluir a conta?</small></h3>
+					<button type="submit-delete" class="btn btn-primaryWarning pull-right" id="excluirCnt">Excluir Conta</button>
 				</div>
 
-		</fieldset>
-		<!-- </form> -->
+				<div class= "col-xs-12">
+					<button type="submit" class="btn btn-primaryGreen" id="confirmaConfig">Confirmar Alterações</button>
+				</div>
+			</div>
+		</div>
 	</div>
-
-</div>
+<script type="text/javascript" src= "../public/js/configuracoes.js"></script>
 	
-</body>
 </html>
 
 <!-- 
