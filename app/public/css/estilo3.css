@@ -1,0 +1,88 @@
+
+/*Remove borda e escolhe cor do painel e dos inputs*/
+.form-control, .panel{
+    background: rgba(40,43,48,.75);
+    border: none;
+}
+/*Cabecalho  da div do login*/
+.panel-default>.panel-heading {
+    color: white;
+    background-color: rgba(30,33,36, .75);
+    border-color: transparent;
+}   
+/*Foco verde*/
+.form-control:focus {
+    border-color: green;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,255,.075), 0 0 8px rgba(0,255,0,.6);
+     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(38,128,0,.6); 
+}
+
+/*Btn verde*/
+.btn-primaryGreen {
+    color: #fff;
+    background-color: #558B57;  
+    border-color: rgb(85,150,87);
+    margin-bottom: 10px;
+}
+.btn-primaryGreen:hover{
+    color: white;
+    background-color: #276733;
+    border-color:  #276733;
+}
+.btn-primaryGreen:focus{
+    color: white;
+    background-color: #276733;
+    border-color:  #276733;
+    outline: 0;
+}
+
+.btn-primaryGreen:active:focus {
+    color: white;
+    background-color: #276733;
+    border-color: #276733;
+    outline: 0;
+}
+
+/*#cadastroNome{
+    padding: 0px;
+}*/
+
+#cadastroNome > h3{
+        margin-left: 15px;
+}
+
+.teste {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    color: #558B57;
+
+}
+
+
+
+.wololo {
+    padding-bottom: 5px;
+    padding-left: 1px; 
+}
+
+*:focus{
+    border-bottom: 3px solid white;
+    margin-top: -1px;
+    margin-bottom: -1px; 
+}
+
+input{
+    width: 100%;
+}
+
+.navbar{
+    background: rgba(40,43,48,.75);
+    border:none;
+    border-radius: 0;
+}
+
+
+

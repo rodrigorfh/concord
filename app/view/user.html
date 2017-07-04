@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+
+<link rel="stylesheet" type="text/css" href="../public/css/estilo3.css">
+<div class="col-md-4 col-md-offset-4" id="painel-meio">
+	<div class="panel panel-default">
+		<div class="panel-heading"> 
+			<h1>Usuário</h1>                               
+		</div>
+		<div class="panel-body">
+			<div class="col-xs-12" id="dentro">
+					<div class="col-xs-12 wololo">
+						<div class="dropdown col-xs-2">
+							<button class="dropbtn ">Status</button>
+							<div class="dropdown-content">
+								<a href="javascript:status('on')">Online</a>
+								<a href="javascript:status('off')">Offline</a>
+								<a href="javascript:status('aus')">Ausente</a>
+								<a href="javascript:status('ocp')">Ocupado</a>
+							</div>
+						</div>
+						<div class="col-xs-10 wololo " id="statusUser">
+							<h1 value="on" id="statusUser2">Online</h1>		
+						</div>
+					</div>
+					
+		        	<div class="col-xs-10 wololo" style="margin-top: 26px;">
+		        		<h3><small>Adicionar Amigo</small></h3>			        		       	     
+		        		<input class="teste" type="text" name="user" id="addAmigo"> 
+					</div>
+					<div class="col-xs-2 wololo" style="margin-top: 32px">		        		       	     
+		        		<button id="confereExist" class="btn btn-primaryGreen">Ok</button>
+					</div>
+		        	
+			</div>			
+			<div class= "col-xs-12">
+				<button id="submitAtualizacao" class="btn btn-primaryGreen">Atualizar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src= "../public/js/user.js"></script>
+<style type="text/css">
+	/* Dropdown Button */
+.dropbtn {
+    background-color:rgb(85,150,87);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(40,43,48,.75);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: red}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+#statusUser{
+
+    position: absolute;
+    
+    margin-left: 100px;
+        margin-top: -10px;
+    color: white;
+
+}
+</style>
+
+<script type="text/javascript">
+	function status(st){
+		return st = this.st;
+	}
+	$("#confereExist").click(function(){	
+		socket.emit("conferirAmigo", {
+			amigo: $("#addAmigo").val()
+		});
+	});
+
+	$("#submitAtualizacao").click(function(){
+		socket.emit("enviarSubmissao", {
+			amigo:$("#addAmigo").val(),
+			status: status($("#statusUser2").val())
+		});
+	});
+
+
+	socket.on("alterarStatus", function(data){
+
+	});
+
+
+	socket.on("amigoAdd", function(data){
+
+	});
+
+</script>
+
+</html>

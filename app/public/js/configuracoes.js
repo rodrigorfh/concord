@@ -1,4 +1,5 @@
 function configUser(){
+	$('#showGame').empty();
 	$.ajax({
 		url: '/config',
 		success: function(page){

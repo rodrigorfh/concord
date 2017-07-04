@@ -83,6 +83,14 @@ io.on('connection', function(socket){
 			});
 
 	});
+
+	socket.on("enviarSubmissao", function(data){
+		//data.amigo e data.status
+	});
+
+	socket.on("conferirAmigo", function(data){
+
+	});
 });
 
 app.get('/', function(req , res){
@@ -128,6 +136,10 @@ app.get("/cadastro", function(req, res){
 	res.render("cadastro.ejs");
 });
 
+app.get('/usuario', function(req, res){
+	res.render('user');
+});
+
 app.get("/config", function(req, res){
 	res.render('config');
 });
@@ -152,8 +164,8 @@ app.post('/registro', function(req, res){
 		console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
 
 	// connection.query('insert into usuarios set 'id_user' = 1, 'nome'= matheus, 'senha'=1234', function(req, res){
-
-	// 		// res.render('cadastro');
+	// 		
+	// res.render('cadastro');
 
 	// });
 });
