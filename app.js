@@ -85,10 +85,11 @@ io.on('connection', function(socket){
 	});
 
 	socket.on("enviarSubmissao", function(data){
-		//data.amigo e data.status
+		//data.amigo = amigo que deseja add e data.status
 	});
 
 	socket.on("conferirAmigo", function(data){
+		//data.amigo = amigo
 
 	});
 });
