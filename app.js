@@ -83,10 +83,40 @@ io.on('connection', function(socket){
 			});
 
 	});
-
 	socket.on("enviarSubmissao", function(data){
 		//data.amigo e data.status
+		console.log("Status: "+data.status+"\nUser:"+data.user+"\nAmigo:"+data.amigo);
+	
+		connection.query('select * from contatos where nome_amigo=?',[data.amigo], function(error, results, fields){	
+			if(!results[0]){
+				console.log("Disgraca");
+				connection.query('select * from usuarios where id_user=?',[data.amigo], function(error,results,fields){
+					if(!results[0]){
+						console.log("Esse usuario nao exite");
+					}else{
+						console.log("Parabens achamaos alguem");
+						inserirAmigo(data.user, data.amigo, 'status');
+					}
+				});
+			}else{
+				inserirAmigo(data.user, data.amigo, results[0].status_pessoa);
+			}
+		});
+	
+		connection.query('UPDATE contatos SET status_pessoa = ? WHERE nome_amigo = ?',[data.status, data.user], function(error, results, fields){
+			// if (error) throw error;
+			console.log('teste 2');
+		});
+		
 	});
+
+	function inserirAmigo(user, amigo, status) {
+		connection.query('INSERT INTO contatos SET id_user = ?, nome_amigo = ?, status_pessoa =?',[user, amigo,status], function(error, results, fields){
+			if (error) throw error;
+			console.log('teste 1');
+		});
+		console.log('dados adicionados!')
+	}
 
 	socket.on("conferirAmigo", function(data){
 
@@ -161,7 +191,7 @@ app.post('/registro', function(req, res){
 		  if (error) throw error;
 		  // Neat!
 		});
-		console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
+		console.log(query.sql); // INSERT INTO usuarios SET `id_user` = ?, `exemplo` = 'Hello MySQL'
 
 	// connection.query('insert into usuarios set 'id_user' = 1, 'nome'= matheus, 'senha'=1234', function(req, res){
 	// 		

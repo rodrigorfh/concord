@@ -22,9 +22,11 @@ $("#confereExist").click(function(){
 
 $("#submitAtualizacao").click(function(){
 	socket.emit("enviarSubmissao", {
-		amigo:$("#addAmigo").val(),
-		status: status($("#statusUser2").val())
+		status: 'oi',
+		user: $("#nick").val(),
+		amigo:$("#addAmigo").val()
 	});
+
 });
 
 
