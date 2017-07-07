@@ -83,10 +83,40 @@ io.on('connection', function(socket){
 			});
 
 	});
-
 	socket.on("enviarSubmissao", function(data){
-		//data.amigo = amigo que deseja add e data.status
+
+		//data.amigo e data.status
+		console.log("Status: "+data.status+"\nUser:"+data.user+"\nAmigo:"+data.amigo);
+	
+		connection.query('select * from contatos where nome_amigo=?',[data.amigo], function(error, results, fields){	
+			if(!results[0]){
+				console.log("Disgraca");
+				connection.query('select * from usuarios where id_user=?',[data.amigo], function(error,results,fields){
+					if(!results[0]){
+						console.log("Esse usuario nao exite");
+					}else{
+						console.log("Parabens achamaos alguem");
+						inserirAmigo(data.user, data.amigo, 'status');
+					}
+				});
+			}else{
+				inserirAmigo(data.user, data.amigo, results[0].status_pessoa);
+			}
+		});
+	
+		connection.query('UPDATE contatos SET status_pessoa = ? WHERE nome_amigo = ?',[data.status, data.user], function(error, results, fields){
+			// if (error) throw error;
+			console.log('teste 2');
+		});
 	});
+
+	function inserirAmigo(user, amigo, status) {
+		connection.query('INSERT INTO contatos SET id_user = ?, nome_amigo = ?, status_pessoa =?',[user, amigo,status], function(error, results, fields){
+			if (error) throw error;
+			console.log('teste 1');
+		});
+		console.log('dados adicionados!')
+	}
 
 	socket.on("conferirAmigo", function(data){
 		//data.amigo = amigo
@@ -105,6 +135,7 @@ app.post('/chat', function(req, res){
 
 	var erros = req.validationErrors(); 
 	// console.log(erros);
+	console.log("Erros: "+ JSON.stringify(erros));
 	if(erros){
 		res.render("index", {validacao : erros});
 		return;
@@ -134,7 +165,7 @@ app.post('/chat', function(req, res){
 
 
 app.get("/cadastro", function(req, res){
-	res.render("cadastro.ejs");
+	res.render("cadastro.ejs", {regCadastro: {}});
 });
 
 app.get('/usuario', function(req, res){
@@ -154,20 +185,24 @@ function hora(){
 }
 
 app.post('/registro', function(req, res){
-
-	console.log(req.body.nome);
-
-		var post  = {id_user: req.body.user, senha: req.body.senha};
-		var query = connection.query('INSERT INTO usuarios SET ?', post, function (error, results, fields) {
-		  if (error) throw error;
-		  // Neat!
+		connection.query('select id_user from usuarios where id_user=?', [req.body.user], function(error, results,fields){
+			if(results[0]){
+				res.render("cadastro",  {regCadastro : [{msg: 'Nao vai ter bolo'}]});
+			}else{				
+				var post  = {id_user: req.body.user, senha: req.body.senha};
+				var query = connection.query('INSERT INTO usuarios SET ?', post, function (error, results, fields) {
+			  if (error) throw error;
+			});
+				console.log(query.sql); // INSERT INTO usuarios SET `id_user` = ?, `exemplo` = 'Hello MySQL'
+				res.render("cadastro",  {regCadastro : [{msg: 'OLAAA MARILENE'}]});
+			}
 		});
-		console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
 
 	// connection.query('insert into usuarios set 'id_user' = 1, 'nome'= matheus, 'senha'=1234', function(req, res){
 	// 		
 	// res.render('cadastro');
-
 	// });
+
+	
 });
 

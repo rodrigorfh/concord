@@ -66,6 +66,20 @@
 
 		</fieldset>
 		</form>
+			<div id="Validacao de erros">
+			<% if(regCadastro.length > 0){ %>
+				<div class="col-md-12" id="alerta">
+					<div id='nick'>
+						<strong>Atenção!</strong>
+						<ul>
+							<% for(var i=0; i < regCadastro.length; i++){ %>
+								<li><%=regCadastro[i].msg%></li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+			<% } %>
+		</div>
 	</div>
 
 </div>
