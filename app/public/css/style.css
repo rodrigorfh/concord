@@ -172,7 +172,6 @@ hr {
 		display: block;
 		float: left;
 		height: 100%;
-		border-right: 0px solid #2E8B57;
 		text-align: center;
 }
 
@@ -397,20 +396,22 @@ input.gn-search:focus {
 		vertical-align: -2px;
 		width: 30px;
 		height: 3px;
-		background: rgb(30,32,36);
-		box-shadow: 0 3px white, 0 -6px rgb(30,32,36), 0 -9px white, 0 -12px rgb(30,32,36);
+		/*background: rgb(30,32,36);
+		box-shadow: 0 3px white, 0 -6px rgb(30,32,36), 0 -9px white, 0 -12px rgb(30,32,36);*/
+		background: #2E8B57;
+    	box-shadow: 0 3px rgb(30,32,36), 0 -6px #2E8B57, 0 -9px rgb(30,32,36), 0 -12px #2E8B57;
 		content: '';
 }
 
 .no-touch .gn-icon-menu:hover::before,
 .no-touch .gn-icon-menu.gn-selected:hover::before {
-		background: white;
-		box-shadow: 0 3px rgb(30,32,36), 0 -6px white, 0 -9px rgb(30,32,36), 0 -12px white;
+		background: #2E8B57;
+    	box-shadow: 0 3px rgb(30,32,36), 0 -6px #2E8B57, 0 -9px rgb(30,32,36), 0 -12px #2E8B57;
 }
 
 .gn-icon-menu.gn-selected::before {
-		background: rgb(30,32,36);
-		box-shadow: 0 3px white, 0 -6px rgb(30,32,36), 0 -9px white, 0 -12px rgb(30,32,36);
+		background: #2E8B57;
+    	box-shadow: 0 3px rgb(30,32,36), 0 -6px #2E8B57, 0 -9px rgb(30,32,36), 0 -12px #2E8B57;
 }
 
 /* styles for opening menu */
