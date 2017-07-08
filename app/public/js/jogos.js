@@ -45,9 +45,9 @@ function gameOn(){
 			console.log('Click');
 			p.background(p.random(255), p.random(255), p.random(255));
 
-			console.log(s);
-			console.log(sketch);
-			console.log(myp5);
+			// console.log(s);
+			// console.log(sketch);
+			// console.log(myp5);
 			
 		};
 		p.draw = function(){

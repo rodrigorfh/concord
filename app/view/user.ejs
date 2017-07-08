@@ -14,29 +14,31 @@
 						<div class="dropdown col-xs-2">
 							<button class="dropbtn ">Status</button>
 							<div class="dropdown-content">
-								<a href="javascript:status('on')">Online</a>
-								<a href="javascript:status('off')">Offline</a>
-								<a href="javascript:status('aus')">Ausente</a>
-								<a href="javascript:status('ocp')">Ocupado</a>
+								<a href="javascript:status('Online')">Online</a>
+								<a href="javascript:status('Offline')">Offline</a>
+								<a href="javascript:status('Ausente')">Ausente</a>
+								<a href="javascript:status('Ocupado')">Ocupado</a>
 							</div>
 						</div>
 						<div class="col-xs-10 wololo " id="statusUser">
-							<h1 value="on" id="statusUser2">Online</h1>		
+							<h1 value="on" id="statusUser2"></h1>		
 						</div>
 					</div>
 					
-		        	<div class="col-xs-10 wololo" style="margin-top: 26px;">
+		        	<div class="col-xs-12 wololo" style="margin-top: 26px; margin-bottom: 20px;">
 		        		<h3><small>Adicionar Amigo</small></h3>			        		       	     
 		        		<input class="teste" type="text" name="user" id="addAmigo"> 
 					</div>
-					<div class="col-xs-2 wololo" style="margin-top: 70px">		        		       	     
+					<!-- <div class="col-xs-2 wololo" style="margin-top: 70px">		        		       	     
 		        		<button id="confereExist" class="btn btn-primaryGreen">Ok</button>
 					</div>
-		        	
+		        	 -->
 			</div>			
 			<div class= "col-xs-12">
-				<button id="submitAtualizacao" class="btn btn-primaryGreen">Atualizar</button>
+				<button id="submitAtualizacao" class="btn btn-primaryGreen">Adicionar Amigo</button>
+				<button style="margin-left: 10px;"onclick="fechar()" class="btn btn-primaryGreen" value="Fechar">Fechar</button>
 			</div>
+			<div id="respostaUser"></div>	
 		</div>
 	</div>
 </div>
