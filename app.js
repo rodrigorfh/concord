@@ -226,6 +226,12 @@ app.get('/usuario', function(req, res){
 app.get("/config", function(req, res){
 	res.render('config');
 });
+
+app.get("/principal", function(req, res){
+	res.render("principal.ejs", {regPrincipal: {}});
+});
+
+
 function hora(){
 	var d = new Date();
   	var h = d.getHours();
