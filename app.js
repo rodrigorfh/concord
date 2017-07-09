@@ -1,5 +1,7 @@
 var app = require('./config/server');
 var dbConnection = require ('./config/dbConnection');
+var fs = require('fs');
+formidable = require('formidable');
 
 var connection = dbConnection();
 
@@ -13,7 +15,6 @@ io.on('connection', function(socket){
 	console.log("Cliente conectado");
 
 	socket.on('enviarMsg', function(data){
-
 		var cmd = data.mensagem;
 		var amigoSelect = cmd.split(" ");
 		var privmsg = false;
@@ -172,7 +173,7 @@ io.on('connection', function(socket){
 	});
 });
 
-app.get('/', function(req , res){
+app.get('/login', function(req , res){
 	res.render('index', {validacao:{}});
 });
 app.post('/chat', function(req, res){
@@ -227,9 +228,14 @@ app.get("/config", function(req, res){
 	res.render('config');
 });
 
-app.get("/principal", function(req, res){
+app.get("/", function(req, res){
 	res.render("principal.ejs", {regPrincipal: {}});
 });
+
+app.post("/upload", function(req,res){
+	// './public/images/a.jpg'
+	// console.log(JSON.stringify(req.body.displayImage));
+});	
 
 
 function hora(){

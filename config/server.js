@@ -9,6 +9,7 @@ var cookieParser = require('cookie-parser');  // processa cookies
 var expressValidator = require('express-validator'); //importa validator
 
 
+
 // Inicia o objeto
 var app = express();
 
@@ -31,6 +32,8 @@ app.use(express.static('./app'));
 
 // Configurar o middleware body-parser
 app.use(bodyParser.urlencoded({extended: true}));
+
+
 
 
 // Exporta o objeto app
