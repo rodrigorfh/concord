@@ -13,16 +13,41 @@ io.on('connection', function(socket){
 	console.log("Cliente conectado");
 
 	socket.on('enviarMsg', function(data){
-		console.log('recebi: '+data.user );
+
+		var cmd = data.mensagem;
+		var amigoSelect = cmd.split(" ");
+		var privmsg = false;
+
+		if(amigoSelect[0] == "/pm") privmsg = true; 
+		// console.log('recebi: '+data.user );
 		socket.emit('mensagemParaCliente', {
 			user: data.user,
 			mensagem: data.mensagem,
-			hora: hora()
+			hora: hora(),
+			privmsg: privmsg,
+			amigo: amigoSelect[1]
 		});	
+
+		// if(data.mensagem.charAt(0) == '/'){
+		// 	var args = data.mensagem.split(" ");
+		// 	switch(args[0]){
+		// 		case '/pm':
+		// 			connection.query('select * from usuarios where id_user=?',[args[1]], function(error,results,fields){
+		// 				console.log(results);
+		// 			});
+		// 		break;
+		// 		default:
+		// 		break;
+		// 	}
+		// }
+	
+		// console.log("All data:\nData.amigo: "+amigoSelect[1]+"\nData.mensagem:"+data.mensagem+"\nData.privmsg:"+privmsg+"\nData.user:"+data.user);
 		socket.broadcast.emit('mensagemParaCliente', {
 			user: data.user,
 			mensagem: data.mensagem,
-			hora: hora()
+			hora: hora(),
+			privmsg: privmsg,
+			amigo: amigoSelect[1]
 		});
 	});
 
@@ -42,16 +67,16 @@ io.on('connection', function(socket){
 		console.log('Usuário desconectou');
 	});	
 	socket.on('chegay',function(data){
-		console.log('Cade vc: '+ data.user);
-		connection.query('select * from contatos', function(error, results, fields){
+		// console.log('Cade vc: '+ data.user);
+		connection.query('select * from contatos where id_user=?',[data.user], function(error, results, fields){
 			if(error) throw error;
 				//Método de acesso a múltiplos usuários
-				for(var i=0; i<results.length; i++){
-				console.log(results[i].nome_amigo);
-		 		}
+				// for(var i=0; i<results.length; i++){
+				// console.log(results[i].nome_amigo);
+		 	// 	}
 		 		socket.emit('seusAmiguinhos', {
 					contato: results
-				});		
+				});
 		});
 	});
 
@@ -68,19 +93,25 @@ io.on('connection', function(socket){
 	});
 
 	socket.on("configPassword", function(data){
-		
+		console.log("Passo1:\nSenha:"+ data.senha+"\nConfirma:"+data.novaSenha);
 		if(data.senha != data.novaSenha){
 			socket.emit("respostaConfig",{
 				status: false,
 				msg: 'Senhas diferentes'
 			});
-		}
-		//data.user = conta a ser alterada a senha
-		//data.senha = nova senha
+		}else{
+			console.log("Passo2:\nSenha:"+ data.senha+"\nConfirma:"+data.novaSenha);
+			//data.user = conta a ser alterada a senha
+			//data.senha = nova senha
 			connection.query('UPDATE usuarios SET senha = ? WHERE id_user = ?', [data.senha, data.user], function (error, results, fields) {
 				if (error) throw error;
-					console.log('Senha alterada com sucesso!');
+				socket.emit("respostaConfig", {
+					status: true,
+					msg: 'Senha alterada com sucesso'
+				});
 			});
+		}
+		console.log("Passo3:\nSenha:"+ data.senha+"\nConfirma:"+data.novaSenha);
 
 	});
 	socket.on("enviarSubmissao", function(data){
@@ -93,10 +124,13 @@ io.on('connection', function(socket){
 				console.log("Disgraca");
 				connection.query('select * from usuarios where id_user=?',[data.amigo], function(error,results,fields){
 					if(!results[0]){
-						console.log("Esse usuario nao exite");
+						socket.emit('amigoAdd', {
+							msg: 'Esse usuario não existe'
+						});
 					}else{
 						console.log("Parabens achamaos alguem");
 						inserirAmigo(data.user, data.amigo, 'status');
+						
 					}
 				});
 			}else{
@@ -115,11 +149,25 @@ io.on('connection', function(socket){
 			if (error) throw error;
 			console.log('teste 1');
 		});
+		socket.emit('amigoAdd', {
+			msg: 'Agora vocês são amigos'
+		});
 		console.log('dados adicionados!')
 	}
 
 	socket.on("conferirAmigo", function(data){
 		//data.amigo = amigo
+		connection.query('select * from contatos where nome_amigo=?',[data.amigo], function(error, results, fields){
+			if(results[0]){
+				socket.emit("checkAmigo", {
+					ok:true
+				});
+			}else{
+				socket.emit("checkAmigo", {
+					ok:false
+				});
+			}
+		});
 
 	});
 });
@@ -134,8 +182,8 @@ app.post('/chat', function(req, res){
 	req.assert('user', 'Seu nome tem que ter de 3 a 15 caracteres').len(3, 15);
 
 	var erros = req.validationErrors(); 
-	// console.log(erros);
-	console.log("Erros: "+ JSON.stringify(erros));
+
+	// console.log("Erros: "+ JSON.stringify(erros));
 	if(erros){
 		res.render("index", {validacao : erros});
 		return;
@@ -153,11 +201,14 @@ app.post('/chat', function(req, res){
 		// for(var i=0; i<results.length; i++){
 		// console.log(results[i].id_user);
 		// }			
+		console.log("Querry: "+query.sql);
 		if(results.length > 0) {
 			  if (results)
-			    console.log("Test:" + results);
+			    // console.log("Test:" + results);
 				io.emit('conexao', {user: login.user, mensagem: 'Entrou no chat', hora: hora()});
 				res.render('chat', {user: login.user});
+			}else{
+				res.render('index', {validacao:[{msg:'Usuario ou senha incorreto'}]});
 			}
 
 		});	
