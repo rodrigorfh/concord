@@ -231,6 +231,9 @@ app.get("/principal", function(req, res){
 	res.render("principal.ejs", {regPrincipal: {}});
 });
 
+app.get("/loja", function(req, res){
+	res.render("loja.ejs", {regLoja: {}});
+});
 
 function hora(){
 	var d = new Date();
