@@ -238,6 +238,11 @@ app.post("/upload", function(req,res){
 });	
 
 
+app.get("/loja", function(req, res){
+	res.render("loja.ejs", {regLoja: {}});
+});
+
+
 function hora(){
 	var d = new Date();
   	var h = d.getHours();
