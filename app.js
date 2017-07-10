@@ -125,6 +125,7 @@ io.on('connection', function(socket){
 				connection.query('select * from usuarios where id_user=?',[data.amigo], function(error,results,fields){
 					if(!results[0]){
 						socket.emit('amigoAdd', {
+							check: false,
 							msg: 'Esse usuario não existe'
 						});
 					}else{
@@ -147,6 +148,7 @@ io.on('connection', function(socket){
 			console.log('teste 1');
 		});
 		socket.emit('amigoAdd', {
+			check:true,
 			msg: 'Agora vocês são amigos'
 		});
 		console.log('dados adicionados!')

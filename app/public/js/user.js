@@ -48,6 +48,12 @@ socket.on("alterarStatus", function(data){
 
 
 socket.on("amigoAdd", function(data){
+	if(data.check && $("#respostaUser").text().length > 0){
+		$('#listaAmigos').empty();
+		socket.emit('chegay',{
+			user: $('#nick').val()
+		});
+	}
 	$('#respostaUser').empty();
 	$("#respostaUser").append('<div id="alerta">'+data.msg+'</div>');
 
