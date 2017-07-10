@@ -232,7 +232,7 @@ DIV DA FOFOCA
 .foto{
 	border-radius: 50%;
 	border: 2px solid grey;
-	background-image: url('../img/dolinho.jpg');
+	background-image: url('../img/user.png');
 	background-size: 100% auto;
 	height: 9vmin;
 }
