@@ -89,3 +89,17 @@ input{
     color:white;
 }
 
+
+input[type='file'] {
+  display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+label {
+  background-color: #558B57;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
