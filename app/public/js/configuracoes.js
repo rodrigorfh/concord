@@ -40,9 +40,9 @@ socket.on("respostaConfig", function(data){
 	console.log("Passo1:\nStatus:"+ data.status+"\nMSG:"+data.msg);
 	var msg = "";
 	if(!data.status){
-		msg += '<div id="alerta-msg">'+ data.msg + '</div>';	
+		msg += '<div id="alerta">'+ data.msg + '</div>';	
 	}else{
-		msg += '<div id="alerta-msg">'+ data.msg + '</div>';	
+		msg += '<div id="alerta">'+ data.msg + '</div>';	
 	}
 	msg += '<input onclick="fechar()" class="btn btn-default" type="submit" value="Fechar">';
 	// alert(msg);

@@ -19,6 +19,10 @@ function usuario(){
 
 function status(st){
 	var status = st;
+	socket.emit("alterarStatus",{
+		user: $("#nick").val(),
+		stats: status
+	});
 	$("#statusUser2").empty();
 	$("#statusUser2").append(status);
 }
@@ -45,7 +49,7 @@ socket.on("alterarStatus", function(data){
 
 socket.on("amigoAdd", function(data){
 	$('#respostaUser').empty();
-	$("#respostaUser").append('<div>'+data.msg+'</div>');
+	$("#respostaUser").append('<div id="alerta">'+data.msg+'</div>');
 
 });
 

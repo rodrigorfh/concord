@@ -3,6 +3,9 @@ body{
    background-image: url('../img/black-green.jpg');
    background-size: 100% auto;
 }
+#alerta{
+    color:white;
+}
 /*Centraliza o painel no meio da tela*/
 #painel-meio{
     position: absolute;

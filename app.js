@@ -122,7 +122,6 @@ io.on('connection', function(socket){
 	
 		connection.query('select * from contatos where nome_amigo=?',[data.amigo], function(error, results, fields){	
 			if(!results[0]){
-				console.log("Disgraca");
 				connection.query('select * from usuarios where id_user=?',[data.amigo], function(error,results,fields){
 					if(!results[0]){
 						socket.emit('amigoAdd', {
@@ -139,10 +138,7 @@ io.on('connection', function(socket){
 			}
 		});
 	
-		connection.query('UPDATE contatos SET status_pessoa = ? WHERE nome_amigo = ?',[data.status, data.user], function(error, results, fields){
-			// if (error) throw error;
-			console.log('teste 2');
-		});
+		
 	});
 
 	function inserirAmigo(user, amigo, status) {
@@ -155,7 +151,12 @@ io.on('connection', function(socket){
 		});
 		console.log('dados adicionados!')
 	}
-
+	socket.on("alterarStatus",function(data){
+		connection.query('UPDATE contatos SET status_pessoa = ? WHERE nome_amigo = ?',[data.stats, data.user], function(error, results, fields){
+			// if (error) throw error;
+			console.log('teste 2');
+		});
+	});
 	socket.on("conferirAmigo", function(data){
 		//data.amigo = amigo
 		connection.query('select * from contatos where nome_amigo=?',[data.amigo], function(error, results, fields){

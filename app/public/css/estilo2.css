@@ -4,6 +4,9 @@ body{
    background-size: 100% auto;
    background-color: rgba(40,43,48,.75);
 }
+#alerta{
+    color:white;
+}
 /*Centraliza o painel no meio da tela*/
 #painel-meio{
     position: absolute;

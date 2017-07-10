@@ -6,6 +6,9 @@ body{
 
 	z-index: 0;
 }
+#alerta{
+    color:white;
+}
 #bodyBody{
 	position: relative;
     min-height: 1px;
@@ -95,7 +98,7 @@ DIV DO Menu firulinha*
     color: #558B57;
 	
 }#escolhaMenu:hover{
-	color: grey;
+	color: white;
 }
 .logosMenu, .logosMenuExtend{
 	/*position: relative;*/
