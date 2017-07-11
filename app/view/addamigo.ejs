@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+
+<link rel="stylesheet" type="text/css" href="../public/css/estilo3.css">
+<div  id="painel-meio">
+	<div class="panel panel-default">
+		<div class="panel-heading"> 
+			<h1>Adicionar Amigo</h1>                               
+		</div>
+		<div class="panel-body">
+			<div class="col-xs-12" id="dentro">	
+				
+		        	<div class="col-xs-12 wololo" style="margin-bottom: 20px;margin-top: 20px;">
+		        				        		       	     
+		        		<input class="teste" type="text" name="user" id="addAmigo" autofocus=""> 
+					</div>
+					<!-- <div class="col-xs-2 wololo" style="margin-top: 70px">		        		       	     
+		        		<button id="confereExist" class="btn btn-primaryGreen">Ok</button>
+					</div>
+		        	 -->
+			</div>			
+			<div class= "col-xs-12">
+				<button id="submitAtualizacao" class="btn btn-primaryGreen">Adicionar Amigo</button>
+				<button style="margin-left: 10px;"onclick="fechar()" class="btn btn-primaryGreen" value="Fechar">Fechar</button>
+			</div>
+			<div id="respostaUser"></div>	
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src= "../public/js/user.js"></script>
+<style type="text/css">
+	/* Dropdown Button */
+.dropbtn {
+    background-color:rgb(85,150,87);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color:white;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+    position: absolute;
+    background-color: rgba(40,43,48,.75);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color:white;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {color:white;
+	background-color: #558B57}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+#statusUser{
+
+    position: absolute;
+    
+    margin-left: 100px;
+        margin-top: -10px;
+    color: white;
+
+}
+</style>
+
+<script type="text/javascript">
+	// function status(st){
+	// 	return st = this.st;
+	// }
+	// $("#confereExist").click(function(){	
+	// 	socket.emit("conferirAmigo", {
+	// 		amigo: $("#addAmigo").val()
+	// 	});
+	// });
+
+	// $("#submitAtualizacao").click(function(){
+	// 	socket.emit("enviarSubmissao", {
+	// 		amigo:$("#addAmigo").val(),
+	// 		status: status($("#statusUser2").val())
+	// 	});
+	// });
+
+
+	// socket.on("alterarStatus", function(data){
+
+	// });
+
+
+	// socket.on("amigoAdd", function(data){
+
+	// });
+
+
+</script>
+
+</html>

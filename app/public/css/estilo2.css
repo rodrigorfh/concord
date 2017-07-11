@@ -1,6 +1,6 @@
 /*Seta imagem bg e seta 100% da tela*/
 body{
-   background-image: url('../img/bggreen_phixr.jpg');
+   background-image: url('../img/bgGreen_phixr.jpg');
    background-size: 100% auto;
    background-color: rgba(40,43,48,.75);
 }

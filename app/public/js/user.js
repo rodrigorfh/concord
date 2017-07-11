@@ -16,6 +16,24 @@ function usuario(){
 	});	
 }
 
+function add(){
+	$('#showGame').empty();
+	if($('#showGame').hasClass('col-xs-6')){
+		fechar();
+		return;
+	}
+	
+	$.ajax({
+		url: '/adicionar',
+		success: function(page){
+			$('#showMsg').removeClass("col-xs-12").addClass("col-xs-6");
+			$('#showGame').addClass('col-xs-6');
+			$("#showGame").append(page);
+		}
+	});	
+}
+
+
 
 function status(st){
 	var status = st;

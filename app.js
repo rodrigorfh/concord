@@ -227,6 +227,10 @@ app.get('/usuario', function(req, res){
 	res.render('user');
 });
 
+app.get('/adicionar', function(req, res){
+	res.render('addamigo');
+});
+
 app.get("/config", function(req, res){
 	res.render('config');
 });
