@@ -260,6 +260,20 @@ function hora(){
 }
 
 app.post('/registro', function(req, res){
+		
+
+		req.assert('user', 'Nome não pode ser vazio').notEmpty();
+		req.assert('senha', 'Senha não pode ser vazio').notEmpty();
+		req.assert('user', 'Seu usuario tem que ter de 3 a 15 caracteres').len(3, 15);
+
+		var erros = req.validationErrors(); 
+
+		// console.log("Erros: "+ JSON.stringify(erros));
+		if(erros){
+			res.render("index", {validacao : erros});
+			return;
+		}
+
 		connection.query('select id_user from usuarios where id_user=?', [req.body.user], function(error, results,fields){
 			if(results[0]){
 				res.render("cadastro",  {regCadastro : [{msg: 'Usuario ja utilizado'}]});
