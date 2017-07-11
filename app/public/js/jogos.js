@@ -1,6 +1,20 @@
 var pontosMarcados = 0;
 
-
+function selectGame(){
+	$('#showGame').empty();
+	if($('#showGame').hasClass('col-xs-6')){
+		fechar();
+		return;
+	}
+	$.ajax({
+		url: '/jogo',
+		success: function(page){
+			$('#showMsg').removeClass("col-xs-12").addClass("col-xs-6");
+			$('#showGame').addClass('col-xs-6');
+			$("#showGame").append(page);
+		}
+	});	
+}
 function gameOn(){
 
 		if($('#showGame').hasClass('col-xs-6')) {

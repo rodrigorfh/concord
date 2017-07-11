@@ -231,6 +231,10 @@ app.get("/config", function(req, res){
 	res.render('config');
 });
 
+app.get("/jogo", function(req, res){
+	res.render('jogos');	
+});
+
 app.get("/", function(req, res){
 	res.render("principal.ejs", {regPrincipal: {}});
 });
@@ -258,14 +262,14 @@ function hora(){
 app.post('/registro', function(req, res){
 		connection.query('select id_user from usuarios where id_user=?', [req.body.user], function(error, results,fields){
 			if(results[0]){
-				res.render("cadastro",  {regCadastro : [{msg: 'Nao vai ter bolo'}]});
+				res.render("cadastro",  {regCadastro : [{msg: 'Usuario ja utilizado'}]});
 			}else{				
 				var post  = {id_user: req.body.user, senha: req.body.senha};
 				var query = connection.query('INSERT INTO usuarios SET ?', post, function (error, results, fields) {
 			  if (error) throw error;
 			});
 				console.log(query.sql); // INSERT INTO usuarios SET `id_user` = ?, `exemplo` = 'Hello MySQL'
-				res.render("cadastro",  {regCadastro : [{msg: 'OLAAA MARILENE'}]});
+				res.render("cadastro",  {regCadastro : [{msg: 'Usuario cadastrado com sucesso'}]});
 			}
 		});
 
