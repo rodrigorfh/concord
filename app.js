@@ -274,7 +274,7 @@ app.post('/registro', function(req, res){
 
 		// console.log("Erros: "+ JSON.stringify(erros));
 		if(erros){
-			res.render("index", {validacao : erros});
+			res.render("cadastro", {validacao : erros});
 			return;
 		}
 
